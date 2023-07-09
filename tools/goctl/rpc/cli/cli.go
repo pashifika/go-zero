@@ -22,6 +22,8 @@ var (
 	VarStringRemote string
 	// VarStringBranch describes the git branch.
 	VarStringBranch string
+	// VarLocalize use the custom settings
+	VarLocalize bool
 	// VarStringSliceGoOut describes the go output.
 	VarStringSliceGoOut []string
 	// VarStringSliceGoGRPCOut describes the grpc output.

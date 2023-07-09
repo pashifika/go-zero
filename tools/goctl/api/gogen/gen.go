@@ -37,6 +37,8 @@ var (
 	VarStringRemote string
 	// VarStringBranch describes the branch.
 	VarStringBranch string
+	// VarLocalize use the custom settings
+	VarLocalize bool
 	// VarStringStyle describes the style of output files.
 	VarStringStyle string
 )

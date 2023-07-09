@@ -30,6 +30,9 @@ func (g *Generator) GenMain(ctx DirContext, proto parser.Proto, cfg *conf.Config
 		return err
 	}
 
+	if c.Localized {
+		mainFilename = "main"
+	}
 	fileName := filepath.Join(ctx.GetMain().Filename, fmt.Sprintf("%v.go", mainFilename))
 	imports := make([]string, 0)
 	pbImport := fmt.Sprintf(`"%v"`, ctx.GetPb().Package)
@@ -71,6 +74,9 @@ func (g *Generator) GenMain(ctx DirContext, proto parser.Proto, cfg *conf.Config
 	etcFileName, err := format.FileNamingFormat(cfg.NamingFormat, ctx.GetServiceName().Source())
 	if err != nil {
 		return err
+	}
+	if c.Localized {
+		etcFileName = "config"
 	}
 
 	return util.With("main").GoFmt(true).Parse(text).SaveTo(map[string]any{

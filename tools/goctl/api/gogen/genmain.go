@@ -26,6 +26,10 @@ func genMain(dir, rootPkg string, cfg *config.Config, api *spec.ApiSpec) error {
 	if strings.HasSuffix(filename, "-api") {
 		filename = strings.ReplaceAll(filename, "-api", "")
 	}
+	if VarLocalize {
+		filename = "main"
+		configName = "config"
+	}
 
 	return genFile(fileGenConfig{
 		dir:             dir,

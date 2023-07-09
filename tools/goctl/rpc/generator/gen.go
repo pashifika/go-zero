@@ -28,6 +28,8 @@ type ZRpcContext struct {
 	Output string
 	// Multiple is the flag to indicate whether the proto file is generated in multiple mode.
 	Multiple bool
+	// Localized use the custom settings
+	Localized bool
 	// Whether to generate rpc client
 	IsGenClient bool
 }
@@ -67,7 +69,7 @@ func (g *Generator) Generate(zctx *ZRpcContext) error {
 		return err
 	}
 
-	err = g.GenEtc(dirCtx, proto, g.cfg)
+	err = g.GenEtc(dirCtx, proto, g.cfg, zctx)
 	if err != nil {
 		return err
 	}
