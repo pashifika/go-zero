@@ -20,6 +20,7 @@ type (
 		Host     string
 		Type     string `json:",default=node,options=node|cluster"`
 		Pass     string `json:",optional"`
+		DB       int    `json:",default=0"`
 		Tls      bool   `json:",optional"`
 		NonBlock bool   `json:",default=true"`
 		// PingTimeout is the timeout for ping redis.
